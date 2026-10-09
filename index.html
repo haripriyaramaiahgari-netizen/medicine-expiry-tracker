@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medicine Expiry Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>💊 Medicine Expiry Tracker</h1>
+        <p>Manage your medicines and track their expiry dates</p>
+    </header>
+
+
+    <main>
+
+        <!-- DASHBOARD -->
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Medicines</h3>
+                <p id="totalMedicines">0</p>
+            </div>
+
+            <div class="card safe-card">
+                <h3>Safe</h3>
+                <p id="safeMedicines">0</p>
+            </div>
+
+            <div class="card warning-card">
+                <h3>Expiring Soon</h3>
+                <p id="expiringMedicines">0</p>
+            </div>
+
+            <div class="card danger-card">
+                <h3>Expired</h3>
+                <p id="expiredMedicines">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- ADD / EDIT MEDICINE -->
+        <section class="form-section">
+
+            <h2 id="formTitle">Add Medicine</h2>
+
+            <form id="medicineForm">
+
+                <input
+                    type="text"
+                    id="medicineName"
+                    placeholder="Medicine Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="batchNumber"
+                    placeholder="Batch Number"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="expiryDate"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="quantity"
+                    placeholder="Quantity"
+                    min="1"
+                    required
+                >
+
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Capsule">Capsule</option>
+                    <option value="Syrup">Syrup</option>
+                    <option value="Injection">Injection</option>
+                    <option value="Ointment">Ointment</option>
+                    <option value="Drops">Drops</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <div class="form-buttons">
+
+                    <button type="submit" id="submitButton">
+                        ➕ Add Medicine
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelEditButton"
+                        class="cancel-btn"
+                        onclick="cancelEdit()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ALERTS -->
+        <section class="alerts-section">
+
+            <h2>🔔 Medicine Alerts</h2>
+
+            <div id="alertsContainer">
+
+                <p class="empty-message">
+                    No alerts at the moment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INVENTORY -->
+        <section class="medicine-section">
+
+            <div class="section-header">
+
+                <h2>Medicine Inventory</h2>
+
+                <div class="filters">
+
+                    <input
+                        type="text"
+                        id="searchMedicine"
+                        placeholder="🔍 Search medicine..."
+                    >
+
+                    <select id="categoryFilter">
+
+                        <option value="All">
+                            All Categories
+                        </option>
+
+                        <option value="Tablet">
+                            Tablet
+                        </option>
+
+                        <option value="Capsule">
+                            Capsule
+                        </option>
+
+                        <option value="Syrup">
+                            Syrup
+                        </option>
+
+                        <option value="Injection">
+                            Injection
+                        </option>
+
+                        <option value="Ointment">
+                            Ointment
+                        </option>
+
+                        <option value="Drops">
+                            Drops
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                    <select id="sortMedicine">
+
+                        <option value="nearest">
+                            Expiry: Nearest First
+                        </option>
+
+                        <option value="farthest">
+                            Expiry: Farthest First
+                        </option>
+
+                        <option value="name">
+                            Name: A-Z
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div id="medicineList">
+
+                <p class="empty-message">
+                    No medicines added yet.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
